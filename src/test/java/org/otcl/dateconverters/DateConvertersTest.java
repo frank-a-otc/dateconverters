@@ -16,7 +16,6 @@ import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -167,7 +166,7 @@ public class DateConvertersTest {
 	}
 	
  	@Test
-	public void testToCalendar() {
+	public void test() {
 		for (Entry<String, String> entry : mapDateStr.entrySet()) {
 			for (Class<?> dateType : dateTypes) {
 				String dateStr = entry.getValue();
