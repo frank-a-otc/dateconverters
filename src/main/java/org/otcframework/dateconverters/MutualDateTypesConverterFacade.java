@@ -4,7 +4,7 @@
 * @version 1.0
 * @since   2020-09-10 
 */
-package org.otcl.dateconverters;
+package org.otcframework.dateconverters;
 
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcl.dateconverters.exception.DateConverterException;
+import org.otcframework.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
 /**

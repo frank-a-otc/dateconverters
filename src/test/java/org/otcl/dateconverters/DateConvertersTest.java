@@ -25,6 +25,7 @@ import java.util.Set;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.junit.Test;
+import org.otcframework.dateconverters.MutualDateTypesConverterFacade;
 
 public class DateConvertersTest {
 

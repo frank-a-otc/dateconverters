@@ -4,7 +4,7 @@
 * @version 1.0
 * @since   2020-09-10 
 */
-package org.otcl.dateconverters;
+package org.otcframework.dateconverters;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -19,7 +19,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.otcl.dateconverters.exception.DateConverterException;
+import org.otcframework.dateconverters.exception.DateConverterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
