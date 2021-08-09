@@ -1,10 +1,26 @@
 /**
+* Copyright (c) otcframework.org
 *
-* @author  Franklin Abel (Joshua), 
+* @author  Franklin Abel
 * @version 1.0
-* @since   2020-09-10 
+* @since   2020-06-08 
+*
+* This file is part of the OTC framework.
+* 
+*  The OTC framework is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, version 3 of the License.
+*
+*  The OTC framework is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  A copy of the GNU General Public License is made available as 'License.md' file, 
+*  along with OTC framework project.  If not, see <https://www.gnu.org/licenses/>.
+*
 */
-package org.otcframework.dateconverters;
+package etree.dateconverters;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,28 +38,17 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcframework.dateconverters.exception.DateConverterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.sisyphsu.dateparser.DateParserUtils;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ToXMLGregorianCalendar.
- */
-class ToXMLGregorianCalendar extends AbstractDateConversions {
+import etree.dateconverters.exception.DateConverterException;
 
-	/** The Constant LOGGER. */
+// TODO: Auto-generated Javadoc
+class ToXMLGregorianCalendar extends AbstractDateConversions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToXMLGregorianCalendar.class);
 
-	/**
-	 * To XML gregorian calendar.
-	 *
-	 * @param <F> the generic type
-	 * @param date the date
-	 * @return the XML gregorian calendar
-	 */
 	public static <F> XMLGregorianCalendar toXMLGregorianCalendar(F date) {
 		if (date == null) {
 			return null;
@@ -54,7 +59,7 @@ class ToXMLGregorianCalendar extends AbstractDateConversions {
 				Date utlDate = DateParserUtils.parseDate((String) date);
 				gc = new GregorianCalendar();
 				gc.setTime(utlDate);
-			} 
+			}
 			if (date instanceof Date) {
 				gc = new GregorianCalendar();
 				gc.setTime((Date) date);
@@ -113,20 +118,13 @@ class ToXMLGregorianCalendar extends AbstractDateConversions {
 				return xmlGregorianCalendar;
 			}
 		} catch (DatatypeConfigurationException e) {
-			throw new DateConverterException("", "Date conversion error! Unable to convert "
-					+ date.getClass().getName() + " to XMLGregorianCalendar", e);
+			throw new DateConverterException("", "Date conversion error! Unable to convert " + date.getClass().getName()
+					+ " to XMLGregorianCalendar", e);
 		}
 		throw new DateConverterException("",
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to XMLGregorianCalendar");
 	}
 
-	/**
-	 * To XML gregorian calendar.
-	 *
-	 * @param dateString the date string
-	 * @param format the format
-	 * @return the XML gregorian calendar
-	 */
 	public static XMLGregorianCalendar toXMLGregorianCalendar(String dateString, String format) {
 		if (dateString == null) {
 			return null;
@@ -141,5 +139,4 @@ class ToXMLGregorianCalendar extends AbstractDateConversions {
 					"Calendar conversion error! Unable to convert " + dateString + " to XMLGregorianCalendar.", e);
 		}
 	}
-
 }

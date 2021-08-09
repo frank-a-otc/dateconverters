@@ -1,10 +1,26 @@
 /**
+* Copyright (c) otcframework.org
 *
-* @author  Franklin Abel (Joshua), 
+* @author  Franklin Abel
 * @version 1.0
-* @since   2020-09-10 
+* @since   2020-06-08 
+*
+* This file is part of the OTC framework.
+* 
+*  The OTC framework is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, version 3 of the License.
+*
+*  The OTC framework is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  A copy of the GNU General Public License is made available as 'License.md' file, 
+*  along with OTC framework project.  If not, see <https://www.gnu.org/licenses/>.
+*
 */
-package org.otcframework.dateconverters;
+package etree.dateconverters;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,43 +36,32 @@ import java.util.GregorianCalendar;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcframework.dateconverters.exception.DateConverterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.sisyphsu.dateparser.DateParserUtils;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ToCalendar.
- */
-class ToCalendar extends AbstractDateConversions {
+import etree.dateconverters.exception.DateConverterException;
 
-	/** The Constant LOGGER. */
+// TODO: Auto-generated Javadoc
+class ToCalendar extends AbstractDateConversions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToCalendar.class);
 
-	/**
-	 * To calendar.
-	 *
-	 * @param <F> the generic type
-	 * @param date the date
-	 * @return the calendar
-	 */
 	public static <F> Calendar toCalendar(F date) {
 		if (date == null) {
 			return null;
 		}
 		if (date instanceof String) {
 			return DateParserUtils.parseCalendar((String) date);
-		} 
+		}
 		if (date instanceof Date) {
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime((Date) date);
 			return calendar;
 		}
-		if (date instanceof Calendar) {  //date instanceof GregorianCalendar ||
+		if (date instanceof Calendar) { // date instanceof GregorianCalendar ||
 			return (Calendar) date;
-		} 
+		}
 		if (date instanceof XMLGregorianCalendar) {
 			return ((XMLGregorianCalendar) date).toGregorianCalendar();
 		}
@@ -88,7 +93,8 @@ class ToCalendar extends AbstractDateConversions {
 			return ((org.joda.time.DateTime) date).toCalendar(DEFAULT_LOCALE);
 		}
 		if (date instanceof org.joda.time.LocalDate) {
-			return (((org.joda.time.LocalDate) date).toDateTime(org.joda.time.LocalTime.MIDNIGHT)).toCalendar(DEFAULT_LOCALE);
+			return (((org.joda.time.LocalDate) date).toDateTime(org.joda.time.LocalTime.MIDNIGHT))
+					.toCalendar(DEFAULT_LOCALE);
 		}
 		if (date instanceof org.joda.time.LocalTime) {
 			LOGGER.warn("No date information available to convert to java.sql.Date. Returning null.");
@@ -97,17 +103,10 @@ class ToCalendar extends AbstractDateConversions {
 		if (date instanceof org.joda.time.LocalDateTime) {
 			return (((org.joda.time.LocalDateTime) date).toDateTime().toCalendar(DEFAULT_LOCALE));
 		}
-		throw new DateConverterException("", "Date conversion error! Unable to convert " + date.getClass().getName() +
-				" to Calendar");
+		throw new DateConverterException("",
+				"Date conversion error! Unable to convert " + date.getClass().getName() + " to Calendar");
 	}
 
-	/**
-	 * To calendar.
-	 *
-	 * @param dateString the date string
-	 * @param format the format
-	 * @return the calendar
-	 */
 	public static Calendar toCalendar(String dateString, String format) {
 		if (dateString == null) {
 			return null;
@@ -121,5 +120,4 @@ class ToCalendar extends AbstractDateConversions {
 					"Calendar conversion error! Unable to convert " + dateString + " to Calendar.", e);
 		}
 	}
-
 }

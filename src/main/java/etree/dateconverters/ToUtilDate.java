@@ -1,10 +1,26 @@
 /**
+* Copyright (c) otcframework.org
 *
-* @author  Franklin Abel (Joshua), 
+* @author  Franklin Abel
 * @version 1.0
-* @since   2020-09-10 
+* @since   2020-06-08 
+*
+* This file is part of the OTC framework.
+* 
+*  The OTC framework is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, version 3 of the License.
+*
+*  The OTC framework is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  A copy of the GNU General Public License is made available as 'License.md' file, 
+*  along with OTC framework project.  If not, see <https://www.gnu.org/licenses/>.
+*
 */
-package org.otcframework.dateconverters;
+package etree.dateconverters;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,28 +36,17 @@ import java.util.GregorianCalendar;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcframework.dateconverters.exception.DateConverterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.sisyphsu.dateparser.DateParserUtils;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ToUtilDate.
- */
-class ToUtilDate extends AbstractDateConversions {
+import etree.dateconverters.exception.DateConverterException;
 
-	/** The Constant LOGGER. */
+// TODO: Auto-generated Javadoc
+class ToUtilDate extends AbstractDateConversions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToUtilDate.class);
 
-	/**
-	 * To util date.
-	 *
-	 * @param <F> the generic type
-	 * @param date the date
-	 * @return the date
-	 */
 	public static <F> Date toUtilDate(F date) {
 		if (date == null) {
 			return null;
@@ -51,7 +56,7 @@ class ToUtilDate extends AbstractDateConversions {
 		}
 		if (date instanceof String) {
 			return DateParserUtils.parseDate((String) date);
-		} 
+		}
 		if (date instanceof Calendar) {
 			return ((Calendar) date).getTime();
 		}
@@ -90,26 +95,19 @@ class ToUtilDate extends AbstractDateConversions {
 			return ((org.joda.time.DateTime) date).toDate();
 		}
 		if (date instanceof org.joda.time.LocalDate) {
-			return ((org.joda.time.LocalDate) date).toDate(); 
+			return ((org.joda.time.LocalDate) date).toDate();
 		}
 		if (date instanceof org.joda.time.LocalTime) {
 			LOGGER.warn("No date information available to convert to Date. Returning null.");
 			return null;
 		}
 		if (date instanceof org.joda.time.LocalDateTime) {
-			return ((org.joda.time.LocalDateTime) date).toDate(); 
+			return ((org.joda.time.LocalDateTime) date).toDate();
 		}
 		throw new DateConverterException("",
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to java.util.Date");
 	}
 
-	/**
-	 * To util date.
-	 *
-	 * @param dateString the date string
-	 * @param format the format
-	 * @return the date
-	 */
 	public static Date toUtilDate(String dateString, String format) {
 		if (dateString == null) {
 			return null;
@@ -121,5 +119,4 @@ class ToUtilDate extends AbstractDateConversions {
 					"Date conversion error! Unable to convert " + dateString + " to java.util.Date", e);
 		}
 	}
-
 }

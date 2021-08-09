@@ -1,10 +1,26 @@
 /**
+* Copyright (c) otcframework.org
 *
-* @author  Franklin Abel (Joshua), 
+* @author  Franklin Abel
 * @version 1.0
-* @since   2020-09-10 
+* @since   2020-06-08 
+*
+* This file is part of the OTC framework.
+* 
+*  The OTC framework is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, version 3 of the License.
+*
+*  The OTC framework is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  A copy of the GNU General Public License is made available as 'License.md' file, 
+*  along with OTC framework project.  If not, see <https://www.gnu.org/licenses/>.
+*
 */
-package org.otcframework.dateconverters;
+package etree.dateconverters;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -20,28 +36,17 @@ import java.util.TimeZone;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcframework.dateconverters.exception.DateConverterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.sisyphsu.dateparser.DateParserUtils;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ToZonedDateTime.
- */
-class ToZonedDateTime extends AbstractDateConversions {
+import etree.dateconverters.exception.DateConverterException;
 
-	/** The Constant LOGGER. */
+// TODO: Auto-generated Javadoc
+class ToZonedDateTime extends AbstractDateConversions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToZonedDateTime.class);
 
-	/**
-	 * To zoned date time.
-	 *
-	 * @param <F> the generic type
-	 * @param date the date
-	 * @return the zoned date time
-	 */
 	public static <F> ZonedDateTime toZonedDateTime(F date) {
 		if (date == null) {
 			return null;
@@ -49,12 +54,13 @@ class ToZonedDateTime extends AbstractDateConversions {
 		if (date instanceof String) {
 			Date utilDate = DateParserUtils.parseDate((String) date);
 			return utilDate.toInstant().atZone(DEFAULT_ZONE_ID);
-		} 
+		}
 		if (date instanceof java.sql.Date) {
 			return ((java.sql.Date) date).toLocalDate().atStartOfDay(DEFAULT_ZONE_ID);
 		}
 		if (date instanceof Date) {
-			return Instant.ofEpochMilli(((Date) date).getTime()).atZone(DEFAULT_ZONE_ID).toOffsetDateTime().toZonedDateTime();
+			return Instant.ofEpochMilli(((Date) date).getTime()).atZone(DEFAULT_ZONE_ID).toOffsetDateTime()
+					.toZonedDateTime();
 		}
 		if (date instanceof Calendar) {
 			Calendar calendar = (Calendar) date;
@@ -103,19 +109,13 @@ class ToZonedDateTime extends AbstractDateConversions {
 		}
 		if (date instanceof org.joda.time.LocalDateTime) {
 			org.joda.time.LocalDateTime localDateTime = ((org.joda.time.LocalDateTime) date);
-			return ZonedDateTime.ofInstant(Instant.ofEpochMilli(localDateTime.toDateTime().getMillis()), DEFAULT_ZONE_ID);
+			return ZonedDateTime.ofInstant(Instant.ofEpochMilli(localDateTime.toDateTime().getMillis()),
+					DEFAULT_ZONE_ID);
 		}
 		throw new DateConverterException("",
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to ZonedDateTime.");
 	}
 
-	/**
-	 * To zoned date time.
-	 *
-	 * @param dateString the date string
-	 * @param format the format
-	 * @return the zoned date time
-	 */
 	public static ZonedDateTime toZonedDateTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;
@@ -128,5 +128,4 @@ class ToZonedDateTime extends AbstractDateConversions {
 					"Date conversion error! Unable to convert " + dateString + " to ZonedDateTime", e);
 		}
 	}
-
 }

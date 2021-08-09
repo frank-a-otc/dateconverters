@@ -1,10 +1,26 @@
 /**
+* Copyright (c) otcframework.org
 *
-* @author  Franklin Abel (Joshua), 
+* @author  Franklin Abel
 * @version 1.0
-* @since   2020-09-10 
+* @since   2020-06-08 
+*
+* This file is part of the OTC framework.
+* 
+*  The OTC framework is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, version 3 of the License.
+*
+*  The OTC framework is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  A copy of the GNU General Public License is made available as 'License.md' file, 
+*  along with OTC framework project.  If not, see <https://www.gnu.org/licenses/>.
+*
 */
-package org.otcframework.dateconverters;
+package etree.dateconverters;
 
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -21,28 +37,13 @@ import java.util.Date;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcframework.dateconverters.exception.DateConverterException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.github.sisyphsu.dateparser.DateParserUtils;
 
+import etree.dateconverters.exception.DateConverterException;
+
 // TODO: Auto-generated Javadoc
-/**
- * The Class ToSqlTime.
- */
 class ToSqlTime extends AbstractDateConversions {
 
-	/** The Constant LOGGER. */
-	private static final Logger LOGGER = LoggerFactory.getLogger(ToSqlTime.class);
-
-	/**
-	 * To sql time.
-	 *
-	 * @param <F> the generic type
-	 * @param date the date
-	 * @return the time
-	 */
 	public static <F> Time toSqlTime(F date) {
 		if (date == null) {
 			return null;
@@ -50,7 +51,7 @@ class ToSqlTime extends AbstractDateConversions {
 		if (date instanceof String) {
 			Date utilDate = DateParserUtils.parseDate((String) date);
 			return new Time(utilDate.getTime());
-		} 
+		}
 		if (date instanceof Date) {
 			return new Time(((java.util.Date) date).getTime());
 		}
@@ -91,26 +92,19 @@ class ToSqlTime extends AbstractDateConversions {
 			return new Time(((org.joda.time.DateTime) date).toDate().getTime());
 		}
 		if (date instanceof org.joda.time.LocalDate) {
-			return new Time(((org.joda.time.LocalDate) date).toDate().getTime()); 
+			return new Time(((org.joda.time.LocalDate) date).toDate().getTime());
 		}
 		if (date instanceof org.joda.time.LocalTime) {
 			org.joda.time.LocalTime localTime = (org.joda.time.LocalTime) date;
 			return new Time(localTime.getHourOfDay(), localTime.getMinuteOfHour(), localTime.getSecondOfMinute());
 		}
 		if (date instanceof org.joda.time.LocalDateTime) {
-			return new Time(((org.joda.time.LocalDateTime) date).toDate().getTime()); 
+			return new Time(((org.joda.time.LocalDateTime) date).toDate().getTime());
 		}
 		throw new DateConverterException("",
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to java.sql.Time");
 	}
 
-	/**
-	 * To sql time.
-	 *
-	 * @param dateString the date string
-	 * @param format the format
-	 * @return the time
-	 */
 	public static Time toSqlTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;
@@ -123,5 +117,4 @@ class ToSqlTime extends AbstractDateConversions {
 					"Date conversion error! Unable to convert " + dateString + " to java.sql.Time", e);
 		}
 	}
-
 }

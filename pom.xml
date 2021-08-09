@@ -4,27 +4,131 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.otcframework</groupId>
-	<artifactId>dateconverters</artifactId>
+	<groupId>etree-dateconverters</groupId>
+	<artifactId>etree-dateconverters</artifactId>
 	<version>1.0</version>
+
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Dateconverters used by OTC Engine and in the generated code.</description>
+	<url>http://www.otcframework.org</url>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License, v3.0</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Franklin Abel</name>
+			<email>frank.a.otc@gmail.com</email>
+			<organization>OTC Framework</organization>
+			<organizationUrl>http://www.otcframework.org</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/frankjjava/etree-dateconverters.git</connection>
+		<developerConnection>scm:git:ssh://github.com:frankjjava/etree-dateconverters.git</developerConnection>
+		<url>https://github.com/frankjjava/etree-dateconverters</url>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+    <issueManagement>
+        <system>Github Issue</system>
+        <url>https://github.com/frankjjava/otcf-issues/issues</url>
+    </issueManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 
-		<jnit.version>5.5.1</jnit.version>
+		<junit.version>5.5.1</junit.version>
 		<logback.version>1.2.3</logback.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<joda.version>2.10.6</joda.version>
 		<dateparser.version>1.0.0</dateparser.version>
+
+		<nexus-maven.version>1.6.8</nexus-maven.version>
+		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>3.3.0</maven-javadoc-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>${nexus-maven.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven-gpg-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.vintage</groupId>
 			<artifactId>junit-vintage-engine</artifactId>
-			<version>${jnit.version}</version>
+			<version>${junit.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>

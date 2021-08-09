@@ -1,10 +1,26 @@
 /**
+* Copyright (c) otcframework.org
 *
-* @author  Franklin Abel (Joshua), 
+* @author  Franklin Abel
 * @version 1.0
-* @since   2020-09-10 
+* @since   2020-06-08 
+*
+* This file is part of the OTC framework.
+* 
+*  The OTC framework is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, version 3 of the License.
+*
+*  The OTC framework is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  A copy of the GNU General Public License is made available as 'License.md' file, 
+*  along with OTC framework project.  If not, see <https://www.gnu.org/licenses/>.
+*
 */
-package org.otcframework.dateconverters;
+package etree.dateconverters;
 
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -22,28 +38,17 @@ import java.util.TimeZone;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcframework.dateconverters.exception.DateConverterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.sisyphsu.dateparser.DateParserUtils;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ToLocalTime.
- */
-class ToLocalTime extends AbstractDateConversions {
+import etree.dateconverters.exception.DateConverterException;
 
-	/** The Constant LOGGER. */
+// TODO: Auto-generated Javadoc
+class ToLocalTime extends AbstractDateConversions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToLocalDate.class);
 
-	/**
-	 * To local time.
-	 *
-	 * @param <F> the generic type
-	 * @param date the date
-	 * @return the local time
-	 */
 	public static <F> LocalTime toLocalTime(F date) {
 		if (date == null || date instanceof java.sql.Date) {
 			return null;
@@ -51,7 +56,7 @@ class ToLocalTime extends AbstractDateConversions {
 		if (date instanceof String) {
 			Date utilDate = DateParserUtils.parseDate((String) date);
 			return utilDate.toInstant().atZone(DEFAULT_ZONE_ID).toLocalTime();
-		} 
+		}
 		if (date instanceof Date) {
 			return Instant.ofEpochMilli(((Date) date).getTime()).atZone(DEFAULT_ZONE_ID).toLocalTime();
 		}
@@ -104,19 +109,13 @@ class ToLocalTime extends AbstractDateConversions {
 		}
 		if (date instanceof org.joda.time.LocalDateTime) {
 			org.joda.time.LocalDateTime localDateTime = ((org.joda.time.LocalDateTime) date);
-			return LocalTime.of(localDateTime.getHourOfDay(), localDateTime.getMinuteOfHour(), localDateTime.getSecondOfMinute());
+			return LocalTime.of(localDateTime.getHourOfDay(), localDateTime.getMinuteOfHour(),
+					localDateTime.getSecondOfMinute());
 		}
 		throw new DateConverterException("",
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to LocalTime");
 	}
 
-	/**
-	 * To local time.
-	 *
-	 * @param dateString the date string
-	 * @param format the format
-	 * @return the local time
-	 */
 	public static LocalTime toLocalTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;
@@ -129,5 +128,4 @@ class ToLocalTime extends AbstractDateConversions {
 					"Date conversion error! Unable to convert " + dateString + " to LocalTime", e);
 		}
 	}
-
 }

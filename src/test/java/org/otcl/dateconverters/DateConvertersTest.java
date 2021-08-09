@@ -1,11 +1,4 @@
-/**
-*
-* @author  Franklin Abel (Joshua), 
-* @version 1.0
-* @since   2020-09-10 
-*/
 package org.otcl.dateconverters;
-
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -21,18 +14,12 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import javax.xml.datatype.XMLGregorianCalendar;
-
-import org.junit.Test;
-import org.otcframework.dateconverters.MutualDateTypesConverterFacade;
-
+import etree.dateconverters.MutualDateTypesConverterFacade;
 public class DateConvertersTest {
 
-	private static final MutualDateTypesConverterFacade dateConverterFacade = MutualDateTypesConverterFacade.getInstance();
 	private static final Set<Class<?>> dateTypes = new LinkedHashSet<>(15);
 	private static final Map<String, String> mapDateStr = new LinkedHashMap<>();
-
 	static {
 		mapDateStr.put("dateStr0","2009-05-08 17:57:51 +0000");
 		mapDateStr.put("dateStr0_1","May 8, 2009 5:57:51 PM");
@@ -127,9 +114,7 @@ public class DateConvertersTest {
 		mapDateStr.put("dateStr45","2014-03-01 00:00:00 +0000");
 		mapDateStr.put("dateStr45_1","2014.03");
 		mapDateStr.put("dateStr46","2014-03-30 00:00:00 +0000");
-
 		mapDateStr.put("dateStr48","2014-03-30 14:00:00 +0000");
-		
 		mapDateStr.put("dateStr50","2014-06-01 00:00:00 +0000");
 		mapDateStr.put("dateStr50_1","20140601");
 		mapDateStr.put("dateStr51","2014-07-22 10:52:03 +0000");
@@ -140,14 +125,12 @@ public class DateConvertersTest {
 		mapDateStr.put("dateStr53_1","1384216367111222");
 		mapDateStr.put("dateStr54","2013-11-12 00:32:47.111222333 +0000");
 		mapDateStr.put("dateStr54_1","1384216367111222333");
-
 //		mapDateStr.put("dateStr46_1","2014.03.30 13:00:00 +1300");
 //		mapDateStr.put("dateStr47","2014-03-30 00:00:00 -1400");
 //		mapDateStr.put("dateStr47_1","2014.03.30 00:00:00 -1400");
 //		mapDateStr.put("dateStr48_1","2014.03.30 00:00:00 -1400");
 //		mapDateStr.put("dateStr49","2014-03-30 00:00:00 +1300");
 //		mapDateStr.put("dateStr49_1","2014.03.30 00:00:00 +1300");
-
 		dateTypes.add(Date.class);
 		dateTypes.add(java.sql.Date.class);
 		dateTypes.add(Timestamp.class);
@@ -165,8 +148,7 @@ public class DateConvertersTest {
 		dateTypes.add(org.joda.time.LocalDateTime.class);
 		dateTypes.add(org.joda.time.LocalTime.class);
 	}
-	
- 	@Test
+// 	@Test
 	public void test() {
 		for (Entry<String, String> entry : mapDateStr.entrySet()) {
 			for (Class<?> dateType : dateTypes) {
@@ -175,18 +157,17 @@ public class DateConvertersTest {
 				if (Instant.class == dateType) {
 					int debugLine = 0;
 				}
- 				Object converted = dateConverterFacade.convert(dateStr, dateType);
+ 				Object converted = MutualDateTypesConverterFacade.convert(dateStr, dateType);
  				System.out.println("\t" + "from String to " + dateType.getName() + " = " + converted);
 				for (Class<?> dateTypeTo : dateTypes) {
 					if (Instant.class == dateTypeTo) {
 						int debugLine = 0;
 					}
-					Object convertedTo = dateConverterFacade.convert(converted, dateTypeTo);
+					Object convertedTo = MutualDateTypesConverterFacade.convert(converted, dateTypeTo);
 	 				System.out.println("\t" + "from " + dateType.getName() + " to " + dateTypeTo.getName() 
 	 						+ ". converted-value = " + convertedTo);
 				}
  			}
  		}
 	}
-
 }

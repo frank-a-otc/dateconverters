@@ -1,10 +1,26 @@
 /**
+* Copyright (c) otcframework.org
 *
-* @author  Franklin Abel (Joshua), 
+* @author  Franklin Abel
 * @version 1.0
-* @since   2020-09-10 
+* @since   2020-06-08 
+*
+* This file is part of the OTC framework.
+* 
+*  The OTC framework is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, version 3 of the License.
+*
+*  The OTC framework is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  A copy of the GNU General Public License is made available as 'License.md' file, 
+*  along with OTC framework project.  If not, see <https://www.gnu.org/licenses/>.
+*
 */
-package org.otcframework.dateconverters;
+package etree.dateconverters;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -21,28 +37,17 @@ import java.util.TimeZone;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.otcframework.dateconverters.exception.DateConverterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.sisyphsu.dateparser.DateParserUtils;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ToOffsetDateTime.
- */
-class ToOffsetDateTime extends AbstractDateConversions {
+import etree.dateconverters.exception.DateConverterException;
 
-	/** The Constant LOGGER. */
+// TODO: Auto-generated Javadoc
+class ToOffsetDateTime extends AbstractDateConversions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToOffsetDateTime.class);
 
-	/**
-	 * To offset date time.
-	 *
-	 * @param <F> the generic type
-	 * @param date the date
-	 * @return the offset date time
-	 */
 	public static <F> OffsetDateTime toOffsetDateTime(F date) {
 		if (date == null) {
 			return null;
@@ -105,19 +110,13 @@ class ToOffsetDateTime extends AbstractDateConversions {
 		}
 		if (date instanceof org.joda.time.LocalDateTime) {
 			org.joda.time.LocalDateTime localDateTime = ((org.joda.time.LocalDateTime) date);
-			return OffsetDateTime.ofInstant(Instant.ofEpochMilli(localDateTime.toDateTime().getMillis()), DEFAULT_ZONE_ID);
+			return OffsetDateTime.ofInstant(Instant.ofEpochMilli(localDateTime.toDateTime().getMillis()),
+					DEFAULT_ZONE_ID);
 		}
 		throw new DateConverterException("",
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to OffsetDateTime");
 	}
 
-	/**
-	 * To offset date time.
-	 *
-	 * @param dateString the date string
-	 * @param format the format
-	 * @return the offset date time
-	 */
 	public static OffsetDateTime toOffsetDateTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;
@@ -130,5 +129,4 @@ class ToOffsetDateTime extends AbstractDateConversions {
 					"Date conversion error! Unable to convert " + dateString + " to OffsetDateTime", e);
 		}
 	}
-
 }
