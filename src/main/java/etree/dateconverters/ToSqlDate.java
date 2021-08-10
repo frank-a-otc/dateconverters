@@ -44,9 +44,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToSqlDate.
+ */
+// TODO: Auto-generated Javadoc
 class ToSqlDate extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToSqlDate.class);
 
+	/**
+	 * To sql date.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the date
+	 */
 	public static <F> Date toSqlDate(F date) {
 		if (date == null) {
 			return null;
@@ -105,6 +118,13 @@ class ToSqlDate extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to java.sql.Date");
 	}
 
+	/**
+	 * To sql date.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the date
+	 */
 	public static Date toSqlDate(String dateString, String format) {
 		if (dateString == null) {
 			return null;

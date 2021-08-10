@@ -41,8 +41,19 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToJodaLocalTime.
+ */
+// TODO: Auto-generated Javadoc
 class ToJodaLocalTime extends AbstractDateConversions {
 
+	/**
+	 * To local time.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the local time
+	 */
 	public static <F> LocalTime toLocalTime(F date) {
 		if (date == null) {
 			return null;
@@ -99,6 +110,13 @@ class ToJodaLocalTime extends AbstractDateConversions {
 				+ " to org.joda.time.LocalTime");
 	}
 
+	/**
+	 * To local time.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the local time
+	 */
 	public static LocalTime toLocalTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;

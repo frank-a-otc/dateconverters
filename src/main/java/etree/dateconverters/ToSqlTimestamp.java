@@ -45,9 +45,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToSqlTimestamp.
+ */
+// TODO: Auto-generated Javadoc
 class ToSqlTimestamp extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToSqlTimestamp.class);
 
+	/**
+	 * To sql timestamp.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the timestamp
+	 */
 	public static <F> Timestamp toSqlTimestamp(F date) {
 		if (date == null) {
 			return null;
@@ -107,6 +120,13 @@ class ToSqlTimestamp extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to java.sql.Timestamp");
 	}
 
+	/**
+	 * To sql timestamp.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the time
+	 */
 	public static Time toSqlTimestamp(String dateString, String format) {
 		if (dateString == null) {
 			return null;

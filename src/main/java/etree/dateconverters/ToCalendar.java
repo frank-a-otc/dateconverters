@@ -44,9 +44,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToCalendar.
+ */
+// TODO: Auto-generated Javadoc
 class ToCalendar extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToCalendar.class);
 
+	/**
+	 * To calendar.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the calendar
+	 */
 	public static <F> Calendar toCalendar(F date) {
 		if (date == null) {
 			return null;
@@ -107,6 +120,13 @@ class ToCalendar extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to Calendar");
 	}
 
+	/**
+	 * To calendar.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the calendar
+	 */
 	public static Calendar toCalendar(String dateString, String format) {
 		if (dateString == null) {
 			return null;

@@ -43,9 +43,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToJodaLocalDateTime.
+ */
+// TODO: Auto-generated Javadoc
 class ToJodaLocalDateTime extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToJodaLocalDateTime.class);
 
+	/**
+	 * To local date time.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the local date time
+	 */
 	public static <F> LocalDateTime toLocalDateTime(F date) {
 		if (date == null) {
 			return null;
@@ -107,6 +120,13 @@ class ToJodaLocalDateTime extends AbstractDateConversions {
 				+ " to org.joda.time.LocalDateTime");
 	}
 
+	/**
+	 * To local date time.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the local date time
+	 */
 	public static LocalDateTime toLocalDateTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;

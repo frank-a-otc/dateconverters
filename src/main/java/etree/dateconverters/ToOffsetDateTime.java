@@ -45,9 +45,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToOffsetDateTime.
+ */
+// TODO: Auto-generated Javadoc
 class ToOffsetDateTime extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToOffsetDateTime.class);
 
+	/**
+	 * To offset date time.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the offset date time
+	 */
 	public static <F> OffsetDateTime toOffsetDateTime(F date) {
 		if (date == null) {
 			return null;
@@ -117,6 +130,13 @@ class ToOffsetDateTime extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to OffsetDateTime");
 	}
 
+	/**
+	 * To offset date time.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the offset date time
+	 */
 	public static OffsetDateTime toOffsetDateTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;

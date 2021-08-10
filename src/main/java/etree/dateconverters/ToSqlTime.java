@@ -42,8 +42,19 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToSqlTime.
+ */
+// TODO: Auto-generated Javadoc
 class ToSqlTime extends AbstractDateConversions {
 
+	/**
+	 * To sql time.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the time
+	 */
 	public static <F> Time toSqlTime(F date) {
 		if (date == null) {
 			return null;
@@ -105,6 +116,13 @@ class ToSqlTime extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to java.sql.Time");
 	}
 
+	/**
+	 * To sql time.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the time
+	 */
 	public static Time toSqlTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;

@@ -41,8 +41,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class MutualDateTypesConverterFacade.
+ */
 public class MutualDateTypesConverterFacade {
+	
+	/** The Constant dateTypes. */
 	private static final Set<Class<?>> dateTypes = new HashSet<>(15);
+	
 	static {
 		dateTypes.add(Date.class);
 		dateTypes.add(java.sql.Date.class);
@@ -62,20 +68,44 @@ public class MutualDateTypesConverterFacade {
 		dateTypes.add(org.joda.time.LocalTime.class);
 	}
 
+	/**
+	 * Instantiates a new mutual date types converter facade.
+	 */
 	private MutualDateTypesConverterFacade() {
 	}
 
+	/** The Constant dateConverterFacade. */
 	private static final MutualDateTypesConverterFacade dateConverterFacade = new MutualDateTypesConverterFacade();
 
+	/**
+	 * Gets the single instance of MutualDateTypesConverterFacade.
+	 *
+	 * @return single instance of MutualDateTypesConverterFacade
+	 */
 	public static MutualDateTypesConverterFacade getInstance() {
-		// no need of string singleton.
+		// no need of strict singleton.
 		return dateConverterFacade;
 	}
 
+	/**
+	 * Checks if is of any date type.
+	 *
+	 * @param clz the clz
+	 * @return true, if is of any date type
+	 */
 	public static boolean isOfAnyDateType(Class<?> clz) {
 		return dateTypes.contains(clz);
 	}
 
+	/**
+	 * Convert.
+	 *
+	 * @param <F> the generic type
+	 * @param <T> the generic type
+	 * @param from the from
+	 * @param toClz the to clz
+	 * @return the t
+	 */
 	@SuppressWarnings("unchecked")
 	public static <F, T> T convert(F from, Class<? extends T> toClz) {
 		if (from == null) {
@@ -133,6 +163,15 @@ public class MutualDateTypesConverterFacade {
 				"Date conversion error! Unable to convert " + from.getClass().getName() + " to " + toClz);
 	}
 
+	/**
+	 * Convert.
+	 *
+	 * @param <T> the generic type
+	 * @param strDate the str date
+	 * @param toClz the to clz
+	 * @param format the format
+	 * @return the t
+	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T convert(String strDate, Class<? extends T> toClz, String format) {
 		if (strDate == null) {

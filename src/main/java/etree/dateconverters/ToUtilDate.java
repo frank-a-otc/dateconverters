@@ -44,9 +44,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToUtilDate.
+ */
+// TODO: Auto-generated Javadoc
 class ToUtilDate extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToUtilDate.class);
 
+	/**
+	 * To util date.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the date
+	 */
 	public static <F> Date toUtilDate(F date) {
 		if (date == null) {
 			return null;
@@ -108,6 +121,13 @@ class ToUtilDate extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to java.util.Date");
 	}
 
+	/**
+	 * To util date.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the date
+	 */
 	public static Date toUtilDate(String dateString, String format) {
 		if (dateString == null) {
 			return null;

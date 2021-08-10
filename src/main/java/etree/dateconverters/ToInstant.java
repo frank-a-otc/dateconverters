@@ -41,9 +41,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToInstant.
+ */
+// TODO: Auto-generated Javadoc
 class ToInstant extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToInstant.class);
 
+	/**
+	 * To instant.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the instant
+	 */
 	public static <F> Instant toInstant(F date) {
 		if (date == null) {
 			return null;
@@ -101,6 +114,13 @@ class ToInstant extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to java.time.Instant!");
 	}
 
+	/**
+	 * To instant.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the instant
+	 */
 	public static Instant toInstant(String dateString, String format) {
 		if (dateString == null) {
 			return null;

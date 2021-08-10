@@ -31,11 +31,24 @@ import java.util.TimeZone;
 import org.joda.time.DateTimeZone;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class AbstractDateConversions.
+ */
+// TODO: Auto-generated Javadoc
 class AbstractDateConversions {
 
+	/** The Constant DEFAULT_LOCALE. */
 	protected static final Locale DEFAULT_LOCALE = Locale.getDefault();
+	
+	/** The Constant DEFAULT_TIME_ZONE. */
 	protected static final TimeZone DEFAULT_TIME_ZONE = TimeZone.getDefault();
+	
+	/** The Constant DEFAULT_ZONE_ID. */
 	protected static final ZoneId DEFAULT_ZONE_ID = ZoneId.systemDefault();
+	
+	/** The Constant DEFAULT_ZONE_OFFSET. */
 	protected static final ZoneOffset DEFAULT_ZONE_OFFSET = OffsetDateTime.now().getOffset();
+	
+	/** The Constant DEFAULT_JODA_DATE_TIME_ZONE. */
 	protected static final DateTimeZone DEFAULT_JODA_DATE_TIME_ZONE = DateTimeZone.forTimeZone(DEFAULT_TIME_ZONE);
 }

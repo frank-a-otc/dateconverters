@@ -46,9 +46,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToLocalTime.
+ */
+// TODO: Auto-generated Javadoc
 class ToLocalTime extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToLocalDate.class);
 
+	/**
+	 * To local time.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the local time
+	 */
 	public static <F> LocalTime toLocalTime(F date) {
 		if (date == null || date instanceof java.sql.Date) {
 			return null;
@@ -116,6 +129,13 @@ class ToLocalTime extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to LocalTime");
 	}
 
+	/**
+	 * To local time.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the local time
+	 */
 	public static LocalTime toLocalTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;

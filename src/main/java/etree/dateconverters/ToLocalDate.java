@@ -45,9 +45,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToLocalDate.
+ */
+// TODO: Auto-generated Javadoc
 class ToLocalDate extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToLocalDate.class);
 
+	/**
+	 * To local date.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the local date
+	 */
 	public static <F> LocalDate toLocalDate(F date) {
 		if (date == null) {
 			return null;
@@ -116,6 +129,13 @@ class ToLocalDate extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to LocalDate");
 	}
 
+	/**
+	 * To local date.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the local date
+	 */
 	public static LocalDate toLocalDate(String dateString, String format) {
 		if (dateString == null) {
 			return null;

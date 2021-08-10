@@ -22,33 +22,75 @@
 */
 package etree.dateconverters.exception;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DateConverterException.
+ */
 public class DateConverterException extends RuntimeException {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 6218106303823662498L;
+	
+	/** The error code. */
 	private String errorCode;
 
+	/**
+	 * Instantiates a new date converter exception.
+	 *
+	 * @param errorCode the error code
+	 */
 	public DateConverterException(String errorCode) {
 		this.errorCode = errorCode;
 	}
 
+	/**
+	 * Instantiates a new date converter exception.
+	 *
+	 * @param errorCode the error code
+	 * @param msg the msg
+	 */
 	public DateConverterException(String errorCode, String msg) {
 		super(msg);
 		this.errorCode = errorCode;
 	}
 
+	/**
+	 * Instantiates a new date converter exception.
+	 *
+	 * @param cause the cause
+	 */
 	public DateConverterException(Throwable cause) {
 		super(cause);
 	}
 
+	/**
+	 * Instantiates a new date converter exception.
+	 *
+	 * @param errorCode the error code
+	 * @param cause the cause
+	 */
 	public DateConverterException(String errorCode, Throwable cause) {
 		super(cause);
 		this.errorCode = errorCode;
 	}
 
+	/**
+	 * Instantiates a new date converter exception.
+	 *
+	 * @param errorCode the error code
+	 * @param msg the msg
+	 * @param cause the cause
+	 */
 	public DateConverterException(String errorCode, String msg, Throwable cause) {
 		super(msg, cause);
 		this.errorCode = errorCode;
 	}
 
+	/**
+	 * Gets the error code.
+	 *
+	 * @return the error code
+	 */
 	public String getErrorCode() {
 		return errorCode;
 	}

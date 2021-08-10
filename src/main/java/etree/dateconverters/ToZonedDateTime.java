@@ -44,9 +44,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToZonedDateTime.
+ */
+// TODO: Auto-generated Javadoc
 class ToZonedDateTime extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToZonedDateTime.class);
 
+	/**
+	 * To zoned date time.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the zoned date time
+	 */
 	public static <F> ZonedDateTime toZonedDateTime(F date) {
 		if (date == null) {
 			return null;
@@ -116,6 +129,13 @@ class ToZonedDateTime extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to ZonedDateTime.");
 	}
 
+	/**
+	 * To zoned date time.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the zoned date time
+	 */
 	public static ZonedDateTime toZonedDateTime(String dateString, String format) {
 		if (dateString == null) {
 			return null;

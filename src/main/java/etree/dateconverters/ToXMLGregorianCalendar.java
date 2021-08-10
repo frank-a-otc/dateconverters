@@ -46,9 +46,22 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 import etree.dateconverters.exception.DateConverterException;
 
 // TODO: Auto-generated Javadoc
+/**
+ * The Class ToXMLGregorianCalendar.
+ */
+// TODO: Auto-generated Javadoc
 class ToXMLGregorianCalendar extends AbstractDateConversions {
+	
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ToXMLGregorianCalendar.class);
 
+	/**
+	 * To XML gregorian calendar.
+	 *
+	 * @param <F> the generic type
+	 * @param date the date
+	 * @return the XML gregorian calendar
+	 */
 	public static <F> XMLGregorianCalendar toXMLGregorianCalendar(F date) {
 		if (date == null) {
 			return null;
@@ -125,6 +138,13 @@ class ToXMLGregorianCalendar extends AbstractDateConversions {
 				"Date conversion error! Unable to convert " + date.getClass().getName() + " to XMLGregorianCalendar");
 	}
 
+	/**
+	 * To XML gregorian calendar.
+	 *
+	 * @param dateString the date string
+	 * @param format the format
+	 * @return the XML gregorian calendar
+	 */
 	public static XMLGregorianCalendar toXMLGregorianCalendar(String dateString, String format) {
 		if (dateString == null) {
 			return null;
