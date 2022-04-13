@@ -40,11 +40,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import etree.dateconverters.exception.DateConverterException;
 
+
 // TODO: Auto-generated Javadoc
 /**
- * The Class MutualDateTypesConverterFacade.
+ * The Class DateConverterFacade.
  */
-public class MutualDateTypesConverterFacade {
+public class DateConverterFacade {
 	
 	/** The Constant dateTypes. */
 	private static final Set<Class<?>> dateTypes = new HashSet<>(15);
@@ -71,18 +72,18 @@ public class MutualDateTypesConverterFacade {
 	/**
 	 * Instantiates a new mutual date types converter facade.
 	 */
-	private MutualDateTypesConverterFacade() {
+	private DateConverterFacade() {
 	}
 
 	/** The Constant dateConverterFacade. */
-	private static final MutualDateTypesConverterFacade dateConverterFacade = new MutualDateTypesConverterFacade();
+	private static final DateConverterFacade dateConverterFacade = new DateConverterFacade();
 
 	/**
-	 * Gets the single instance of MutualDateTypesConverterFacade.
+	 * Gets the single instance of DateConverterFacade.
 	 *
-	 * @return single instance of MutualDateTypesConverterFacade
+	 * @return single instance of DateConverterFacade
 	 */
-	public static MutualDateTypesConverterFacade getInstance() {
+	public static DateConverterFacade getInstance() {
 		// no need of strict singleton.
 		return dateConverterFacade;
 	}

@@ -17,7 +17,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import etree.dateconverters.MutualDateTypesConverterFacade;
+import etree.dateconverters.DateConverterFacade;
 public class DateConvertersTest {
 
 	private static final Set<Class<?>> dateTypes = new LinkedHashSet<>(15);
@@ -159,13 +159,13 @@ public class DateConvertersTest {
 				if (Instant.class == dateType) {
 					int debugLine = 0;
 				}
- 				Object converted = MutualDateTypesConverterFacade.convert(dateStr, dateType);
+ 				Object converted = DateConverterFacade.convert(dateStr, dateType);
  				System.out.println("\t" + "from String to " + dateType.getName() + " = " + converted);
 				for (Class<?> dateTypeTo : dateTypes) {
 					if (Instant.class == dateTypeTo) {
 						int debugLine = 0;
 					}
-					Object convertedTo = MutualDateTypesConverterFacade.convert(converted, dateTypeTo);
+					Object convertedTo = DateConverterFacade.convert(converted, dateTypeTo);
 	 				System.out.println("\t" + "from " + dateType.getName() + " to " + dateTypeTo.getName() 
 	 						+ ". converted-value = " + convertedTo);
 				}
