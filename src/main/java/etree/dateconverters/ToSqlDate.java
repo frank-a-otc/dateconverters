@@ -43,11 +43,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToSqlDate.
  */
-// TODO: Auto-generated Javadoc
+
 class ToSqlDate extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -130,9 +130,8 @@ class ToSqlDate extends AbstractDateConversions {
 			return null;
 		}
 		try {
-			java.util.Date date = new SimpleDateFormat(format).parse((String) dateString);
-			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-			return sqlDate;
+			java.util.Date date = new SimpleDateFormat(format).parse(dateString);
+			return new java.sql.Date(date.getTime());
 		} catch (ParseException e) {
 			throw new DateConverterException("",
 					"Date conversion error! Unable to convert " + dateString + " to java.sql.Date", e);

@@ -43,11 +43,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToJodaInstant.
  */
-// TODO: Auto-generated Javadoc
+
 class ToJodaInstant extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */

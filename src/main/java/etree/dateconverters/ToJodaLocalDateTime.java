@@ -42,11 +42,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToJodaLocalDateTime.
  */
-// TODO: Auto-generated Javadoc
+
 class ToJodaLocalDateTime extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -68,10 +68,10 @@ class ToJodaLocalDateTime extends AbstractDateConversions {
 			return new LocalDateTime(utilDate);
 		}
 		if (date instanceof Date) {
-			return new LocalDateTime((Date) date);
+			return new LocalDateTime(date);
 		}
 		if (date instanceof Calendar) {
-			return new LocalDateTime((Calendar) date);
+			return new LocalDateTime(date);
 		}
 		if (date instanceof XMLGregorianCalendar) {
 			return new LocalDateTime(((XMLGregorianCalendar) date).toGregorianCalendar());

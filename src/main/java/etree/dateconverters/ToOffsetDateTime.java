@@ -44,11 +44,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToOffsetDateTime.
  */
-// TODO: Auto-generated Javadoc
+
 class ToOffsetDateTime extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */

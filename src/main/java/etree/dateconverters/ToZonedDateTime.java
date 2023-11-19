@@ -43,11 +43,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToZonedDateTime.
  */
-// TODO: Auto-generated Javadoc
+
 class ToZonedDateTime extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */

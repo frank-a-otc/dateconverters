@@ -43,11 +43,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToJodaLocalDate.
  */
-// TODO: Auto-generated Javadoc
+
 class ToJodaLocalDate extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -69,13 +69,13 @@ class ToJodaLocalDate extends AbstractDateConversions {
 			return new LocalDate(utilDate);
 		}
 		if (date instanceof Date) {
-			return new LocalDate((Date) date);
+			return new LocalDate(date);
 		}
 		if (date instanceof Timestamp) {
-			return new LocalDate((Timestamp) date);
+			return new LocalDate(date);
 		}
 		if (date instanceof Calendar) {
-			return new LocalDate((Calendar) date);
+			return new LocalDate(date);
 		}
 		if (date instanceof XMLGregorianCalendar) {
 			return new LocalDate(((XMLGregorianCalendar) date).toGregorianCalendar());

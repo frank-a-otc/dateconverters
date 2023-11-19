@@ -22,7 +22,7 @@
 */
 package etree.dateconverters.exception;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class DateConverterException.
  */

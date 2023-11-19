@@ -30,11 +30,11 @@ import java.util.TimeZone;
 
 import org.joda.time.DateTimeZone;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class AbstractDateConversions.
  */
-// TODO: Auto-generated Javadoc
+
 class AbstractDateConversions {
 
 	/** The Constant DEFAULT_LOCALE. */

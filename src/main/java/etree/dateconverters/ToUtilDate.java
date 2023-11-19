@@ -43,11 +43,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToUtilDate.
  */
-// TODO: Auto-generated Javadoc
+
 class ToUtilDate extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -133,7 +133,7 @@ class ToUtilDate extends AbstractDateConversions {
 			return null;
 		}
 		try {
-			return new SimpleDateFormat(format).parse((String) dateString);
+			return new SimpleDateFormat(format).parse(dateString);
 		} catch (ParseException e) {
 			throw new DateConverterException("",
 					"Date conversion error! Unable to convert " + dateString + " to java.util.Date", e);

@@ -44,11 +44,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToSqlTimestamp.
  */
-// TODO: Auto-generated Javadoc
+
 class ToSqlTimestamp extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -132,7 +132,7 @@ class ToSqlTimestamp extends AbstractDateConversions {
 			return null;
 		}
 		try {
-			Date date = new SimpleDateFormat(format).parse((String) dateString);
+			Date date = new SimpleDateFormat(format).parse(dateString);
 			return new Time(date.getTime());
 		} catch (ParseException e) {
 			throw new DateConverterException("",

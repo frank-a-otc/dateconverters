@@ -45,15 +45,15 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToLocalTime.
  */
-// TODO: Auto-generated Javadoc
+
 class ToLocalTime extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
-	private static final Logger LOGGER = LoggerFactory.getLogger(ToLocalDate.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ToLocalTime.class);
 
 	/**
 	 * To local time.

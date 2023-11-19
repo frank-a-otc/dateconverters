@@ -40,11 +40,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToInstant.
  */
-// TODO: Auto-generated Javadoc
+
 class ToInstant extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -118,10 +118,9 @@ class ToInstant extends AbstractDateConversions {
 	 * To instant.
 	 *
 	 * @param dateString the date string
-	 * @param format the format
 	 * @return the instant
 	 */
-	public static Instant toInstant(String dateString, String format) {
+	public static Instant toInstant(String dateString) {
 		if (dateString == null) {
 			return null;
 		}

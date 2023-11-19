@@ -44,11 +44,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToLocalDateTime.
  */
-// TODO: Auto-generated Javadoc
+
 class ToLocalDateTime extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */

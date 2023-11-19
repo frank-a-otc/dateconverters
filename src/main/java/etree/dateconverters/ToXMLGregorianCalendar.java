@@ -45,11 +45,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToXMLGregorianCalendar.
  */
-// TODO: Auto-generated Javadoc
+
 class ToXMLGregorianCalendar extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -127,8 +127,7 @@ class ToXMLGregorianCalendar extends AbstractDateConversions {
 				gc.setTime(((org.joda.time.LocalDateTime) date).toDate());
 			}
 			if (gc != null) {
-				XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
-				return xmlGregorianCalendar;
+				return DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
 			}
 		} catch (DatatypeConfigurationException e) {
 			throw new DateConverterException("", "Date conversion error! Unable to convert " + date.getClass().getName()
@@ -151,9 +150,8 @@ class ToXMLGregorianCalendar extends AbstractDateConversions {
 		}
 		try {
 			GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
-			gc.setTime(new SimpleDateFormat(format).parse((String) dateString));
-			XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
-			return xmlGregorianCalendar;
+			gc.setTime(new SimpleDateFormat(format).parse(dateString));
+			return DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
 		} catch (ParseException | DatatypeConfigurationException e) {
 			throw new DateConverterException(
 					"Calendar conversion error! Unable to convert " + dateString + " to XMLGregorianCalendar.", e);

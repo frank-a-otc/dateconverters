@@ -41,7 +41,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import etree.dateconverters.exception.DateConverterException;
 
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class DateConverterFacade.
  */
@@ -195,7 +195,7 @@ public class DateConverterFacade {
 			return (T) ToCalendar.toCalendar(strDate, format);
 		}
 		if (Instant.class == toClz) {
-			return (T) ToInstant.toInstant(strDate, format);
+			return (T) ToInstant.toInstant(strDate);
 		}
 		if (LocalDate.class == toClz) {
 			return (T) ToLocalDate.toLocalDate(strDate, format);
@@ -211,12 +211,6 @@ public class DateConverterFacade {
 		}
 		if (OffsetDateTime.class == toClz) {
 			return (T) ToOffsetDateTime.toOffsetDateTime(strDate, format);
-		}
-		if (XMLGregorianCalendar.class == toClz) {
-			return (T) ToXMLGregorianCalendar.toXMLGregorianCalendar(strDate, format);
-		}
-		if (Instant.class == toClz && strDate != null) {
-			return (T) ToInstant.toInstant(strDate);
 		}
 		if (XMLGregorianCalendar.class == toClz) {
 			return (T) ToXMLGregorianCalendar.toXMLGregorianCalendar(strDate, format);

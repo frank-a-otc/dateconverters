@@ -40,11 +40,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToJodaLocalTime.
  */
-// TODO: Auto-generated Javadoc
+
 class ToJodaLocalTime extends AbstractDateConversions {
 
 	/**
@@ -63,7 +63,7 @@ class ToJodaLocalTime extends AbstractDateConversions {
 			return new LocalTime(utilDate);
 		}
 		if (date instanceof Date) {
-			return new LocalTime((Date) date);
+			return new LocalTime(date);
 		}
 		if (date instanceof Calendar) {
 			Calendar calendar = (Calendar) date;

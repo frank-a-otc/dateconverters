@@ -41,11 +41,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToSqlTime.
  */
-// TODO: Auto-generated Javadoc
+
 class ToSqlTime extends AbstractDateConversions {
 
 	/**
@@ -128,7 +128,7 @@ class ToSqlTime extends AbstractDateConversions {
 			return null;
 		}
 		try {
-			Date date = new SimpleDateFormat(format).parse((String) dateString);
+			Date date = new SimpleDateFormat(format).parse(dateString);
 			return new Time(date.getTime());
 		} catch (ParseException e) {
 			throw new DateConverterException("",

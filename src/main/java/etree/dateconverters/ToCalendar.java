@@ -43,11 +43,11 @@ import com.github.sisyphsu.dateparser.DateParserUtils;
 
 import etree.dateconverters.exception.DateConverterException;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ToCalendar.
  */
-// TODO: Auto-generated Javadoc
+
 class ToCalendar extends AbstractDateConversions {
 	
 	/** The Constant LOGGER. */
@@ -133,7 +133,7 @@ class ToCalendar extends AbstractDateConversions {
 		}
 		try {
 			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(new SimpleDateFormat(format).parse((String) dateString));
+			calendar.setTime(new SimpleDateFormat(format).parse(dateString));
 			return calendar;
 		} catch (ParseException e) {
 			throw new DateConverterException(
