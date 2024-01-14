@@ -6,10 +6,10 @@
 
 	<groupId>org.otcframework</groupId>
 	<artifactId>dateconverters</artifactId>
-	<version>1.4.1</version>
+	<version>1.4.2</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
-	<description>Dateconverters used by OTC Engine and in the generated code.</description>
+	<description>Date-converters used by OTC Engine and in the generated code.</description>
 	<url>http://www.otcframework.org</url>
 
 	<licenses>
@@ -56,15 +56,16 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 
 		<junit.version>5.5.1</junit.version>
-		<logback.version>1.3.11</logback.version>
+		<logback.version>1.3.14</logback.version>
 		<slf4j.version>2.0.9</slf4j.version>
 		<joda.version>2.10.6</joda.version>
 		<dateparser.version>1.0.0</dateparser.version>
+		<lombok.version>1.18.24</lombok.version>
 
 		<nexus-maven.version>1.6.8</nexus-maven.version>
 		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
 		<maven-javadoc-plugin.version>3.3.0</maven-javadoc-plugin.version>
-		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
 	</properties>
 
 	<build>
@@ -146,6 +147,11 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
 			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>joda-time</groupId>
